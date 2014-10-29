@@ -8,7 +8,8 @@ if(NOT CMAKE_BUILD_TYPE)
     set(CMAKE_BUILD_TYPE Release CACHE STRING "Build type" FORCE)
 endif()
 
-INCLUDE_DIRECTORIES ( src/GraphUtils /usr/include/eigen2 ${OpenCV_INCLUDE_DIRS})
+set(EIGEN3_INCLUDE_DIRS "C:/Users/enes/Dst3rdParty_x64_vs11NoCuda/Eigen/include/eigen3")
+INCLUDE_DIRECTORIES ( src/GraphUtils ${EIGEN3_INCLUDE_DIRS} ${OpenCV_INCLUDE_DIRS})
 
 add_executable(STRUCK
     src/Config.cpp
@@ -26,4 +27,4 @@ add_executable(STRUCK
     src/GraphUtils/GraphUtils.cpp
     )
 
-target_link_libraries(STRUCK ${OpenCV_LIBS})
+target_link_libraries(STRUCK ${OpenCV_LIBS} ${EIGEN2_LIBRARIES})
